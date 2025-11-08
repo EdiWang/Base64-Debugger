@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Base64 Encoder / Decoder</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+    <h1>Base64 Encoder / Decoder</h1>
+
+    <label for="charset">Destination character set</label>
+    <select id="charset">
+        <option value="utf-8" selected>UTF-8</option>
+        <option value="utf-16le">UTF-16 LE</option>
+        <option value="utf-16be">UTF-16 BE</option>
+        <option value="iso-8859-1">ISO-8859-1</option>
+    </select>
+
+    <label for="plainText">Plain text</label>
+    <textarea id="plainText" rows="6" placeholder="Enter text to encode..."></textarea>
+
+    <div class="row">
+        <button id="encodeBtn">Encode ⮕</button>
+        <button id="decodeBtn">⮐ Decode</button>
+    </div>
+
+    <label for="base64Text">Base64 text</label>
+    <textarea id="base64Text" rows="6" placeholder="Enter Base64 to decode..."></textarea>
+
+    <script src="main.js"></script>
 </body>
+
 </html>
