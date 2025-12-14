@@ -36,6 +36,30 @@
     <label for="base64Text">Base64 text</label>
     <textarea id="base64Text" rows="6" placeholder="Enter Base64 to decode..." spellcheck="false"></textarea>
 
+    <!-- NEW: Image ⇄ Base64 -->
+    <h2 class="section-title">Image ⇄ Base64</h2>
+
+    <label for="imageFile">Image file</label>
+    <input id="imageFile" class="file-input" type="file" accept="image/*" />
+
+    <div class="row">
+        <button id="imgToB64Btn">Image ⮕ Base64</button>
+        <button id="b64ToImgBtn">⮐ Base64 ⮕ Image</button>
+    </div>
+
+    <label for="imageBase64Text">Image Base64 (supports raw Base64 or data URL)</label>
+    <textarea id="imageBase64Text" rows="8"
+        placeholder="Paste image Base64 here (e.g. iVBORw0... or data:image/png;base64,iVBORw0...)"
+        spellcheck="false"></textarea>
+
+    <div class="image-preview">
+        <div class="image-preview-header">
+            <span>Preview</span>
+            <a id="downloadImageLink" class="download-link" href="#" download="image">Download</a>
+        </div>
+        <img id="imagePreview" alt="Image preview will appear here" />
+    </div>
+
     <script src="main.js"></script>
 </body>
 
