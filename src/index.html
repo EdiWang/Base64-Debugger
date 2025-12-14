@@ -20,10 +20,10 @@
     <!-- NEW: Tabs -->
     <div class="tabs" role="tablist" aria-label="Base64 tools">
         <button id="tabTextBtn" class="tab" role="tab" aria-selected="true" aria-controls="tabTextPanel">
-            文本 ⇄ Base64
+            Text ⇄ Base64
         </button>
         <button id="tabImageBtn" class="tab" role="tab" aria-selected="false" aria-controls="tabImagePanel" tabindex="-1">
-            图片 ⇄ Base64
+            Image ⇄ Base64
         </button>
     </div>
 
@@ -41,8 +41,8 @@
         <textarea id="plainText" rows="6" placeholder="Enter text to encode..." spellcheck="false"></textarea>
 
         <div class="row">
-            <button id="encodeBtn">Encode ⮕</button>
-            <button id="decodeBtn">⮐ Decode</button>
+            <button id="encodeBtn" class="btn btn-primary">To Base64 →</button>
+            <button id="decodeBtn" class="btn btn-secondary">← From Base64</button>
         </div>
 
         <label for="base64Text">Base64 text</label>
@@ -51,14 +51,12 @@
 
     <!-- Tab panel: Image -->
     <section id="tabImagePanel" class="tab-panel" role="tabpanel" aria-labelledby="tabImageBtn" hidden>
-        <h2 class="section-title">Image ⇄ Base64</h2>
-
         <label for="imageFile">Image file</label>
         <input id="imageFile" class="file-input" type="file" accept="image/*" />
 
         <div class="row">
-            <button id="imgToB64Btn">Image ⮕ Base64</button>
-            <button id="b64ToImgBtn">⮐ Base64 ⮕ Image</button>
+            <button id="imgToB64Btn" class="btn btn-primary">To Base64 →</button>
+            <button id="b64ToImgBtn" class="btn btn-secondary">← From Base64</button>
         </div>
 
         <label for="imageBase64Text">Image Base64 (supports raw Base64 or data URL)</label>

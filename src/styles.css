@@ -114,36 +114,38 @@ button {
     overflow: hidden;
 }
 
-#encodeBtn {
+/* NEW: reusable button variants (used by encode/decode buttons in both tabs) */
+.btn-primary {
     background-color: #0078d4;
     color: #ffffff;
 }
 
-#encodeBtn:hover {
+.btn-primary:hover {
     background-color: #106ebe;
 }
 
-#encodeBtn:active {
+.btn-primary:active {
     background-color: #005a9e;
     transform: scale(0.98);
 }
 
-#decodeBtn {
+.btn-secondary {
     background-color: #ffffff;
     color: #323130;
     border: 1px solid #8a8886;
 }
 
-#decodeBtn:hover {
+.btn-secondary:hover {
     background-color: #f3f2f1;
     border-color: #323130;
 }
 
-#decodeBtn:active {
+.btn-secondary:active {
     background-color: #edebe9;
     transform: scale(0.98);
 }
 
+/* (optional) keep focus-visible behavior consistent */
 button:focus-visible {
     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0078d4;
 }
