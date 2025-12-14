@@ -17,48 +17,63 @@
 <body>
     <h1>Base64 Converter</h1>
 
-    <label for="charset">Destination character set</label>
-    <select id="charset">
-        <option value="utf-8" selected>UTF-8</option>
-        <option value="utf-16le">UTF-16 LE</option>
-        <option value="utf-16be">UTF-16 BE</option>
-        <option value="iso-8859-1">ISO-8859-1</option>
-    </select>
-
-    <label for="plainText">Plain text</label>
-    <textarea id="plainText" rows="6" placeholder="Enter text to encode..." spellcheck="false"></textarea>
-
-    <div class="row">
-        <button id="encodeBtn">Encode ⮕</button>
-        <button id="decodeBtn">⮐ Decode</button>
+    <!-- NEW: Tabs -->
+    <div class="tabs" role="tablist" aria-label="Base64 tools">
+        <button id="tabTextBtn" class="tab" role="tab" aria-selected="true" aria-controls="tabTextPanel">
+            文本 ⇄ Base64
+        </button>
+        <button id="tabImageBtn" class="tab" role="tab" aria-selected="false" aria-controls="tabImagePanel" tabindex="-1">
+            图片 ⇄ Base64
+        </button>
     </div>
 
-    <label for="base64Text">Base64 text</label>
-    <textarea id="base64Text" rows="6" placeholder="Enter Base64 to decode..." spellcheck="false"></textarea>
+    <!-- Tab panel: Text -->
+    <section id="tabTextPanel" class="tab-panel" role="tabpanel" aria-labelledby="tabTextBtn">
+        <label for="charset">Destination character set</label>
+        <select id="charset">
+            <option value="utf-8" selected>UTF-8</option>
+            <option value="utf-16le">UTF-16 LE</option>
+            <option value="utf-16be">UTF-16 BE</option>
+            <option value="iso-8859-1">ISO-8859-1</option>
+        </select>
 
-    <!-- NEW: Image ⇄ Base64 -->
-    <h2 class="section-title">Image ⇄ Base64</h2>
+        <label for="plainText">Plain text</label>
+        <textarea id="plainText" rows="6" placeholder="Enter text to encode..." spellcheck="false"></textarea>
 
-    <label for="imageFile">Image file</label>
-    <input id="imageFile" class="file-input" type="file" accept="image/*" />
-
-    <div class="row">
-        <button id="imgToB64Btn">Image ⮕ Base64</button>
-        <button id="b64ToImgBtn">⮐ Base64 ⮕ Image</button>
-    </div>
-
-    <label for="imageBase64Text">Image Base64 (supports raw Base64 or data URL)</label>
-    <textarea id="imageBase64Text" rows="8"
-        placeholder="Paste image Base64 here (e.g. iVBORw0... or data:image/png;base64,iVBORw0...)"
-        spellcheck="false"></textarea>
-
-    <div class="image-preview">
-        <div class="image-preview-header">
-            <span>Preview</span>
-            <a id="downloadImageLink" class="download-link" href="#" download="image">Download</a>
+        <div class="row">
+            <button id="encodeBtn">Encode ⮕</button>
+            <button id="decodeBtn">⮐ Decode</button>
         </div>
-        <img id="imagePreview" alt="Image preview will appear here" />
-    </div>
+
+        <label for="base64Text">Base64 text</label>
+        <textarea id="base64Text" rows="6" placeholder="Enter Base64 to decode..." spellcheck="false"></textarea>
+    </section>
+
+    <!-- Tab panel: Image -->
+    <section id="tabImagePanel" class="tab-panel" role="tabpanel" aria-labelledby="tabImageBtn" hidden>
+        <h2 class="section-title">Image ⇄ Base64</h2>
+
+        <label for="imageFile">Image file</label>
+        <input id="imageFile" class="file-input" type="file" accept="image/*" />
+
+        <div class="row">
+            <button id="imgToB64Btn">Image ⮕ Base64</button>
+            <button id="b64ToImgBtn">⮐ Base64 ⮕ Image</button>
+        </div>
+
+        <label for="imageBase64Text">Image Base64 (supports raw Base64 or data URL)</label>
+        <textarea id="imageBase64Text" rows="8"
+            placeholder="Paste image Base64 here (e.g. iVBORw0... or data:image/png;base64,iVBORw0...)"
+            spellcheck="false"></textarea>
+
+        <div class="image-preview">
+            <div class="image-preview-header">
+                <span>Preview</span>
+                <a id="downloadImageLink" class="download-link" href="#" download="image">Download</a>
+            </div>
+            <img id="imagePreview" alt="Image preview will appear here" />
+        </div>
+    </section>
 
     <script src="main.js"></script>
 </body>

@@ -12,6 +12,39 @@ const imageBase64TextArea = document.getElementById('imageBase64Text');
 const imagePreview = document.getElementById('imagePreview');
 const downloadImageLink = document.getElementById('downloadImageLink');
 
+/* NEW: tabs */
+const tabTextBtn = document.getElementById('tabTextBtn');
+const tabImageBtn = document.getElementById('tabImageBtn');
+const tabTextPanel = document.getElementById('tabTextPanel');
+const tabImagePanel = document.getElementById('tabImagePanel');
+
+function setActiveTab(which) {
+    const isText = which === 'text';
+
+    tabTextBtn.setAttribute('aria-selected', String(isText));
+    tabImageBtn.setAttribute('aria-selected', String(!isText));
+
+    tabTextBtn.tabIndex = isText ? 0 : -1;
+    tabImageBtn.tabIndex = !isText ? 0 : -1;
+
+    tabTextPanel.hidden = !isText;
+    tabImagePanel.hidden = isText;
+}
+
+tabTextBtn.addEventListener('click', () => setActiveTab('text'));
+tabImageBtn.addEventListener('click', () => setActiveTab('image'));
+
+// Optional: keyboard support (Left/Right)
+[tabTextBtn, tabImageBtn].forEach(btn => {
+    btn.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        e.preventDefault();
+        const next = (document.activeElement === tabTextBtn) ? tabImageBtn : tabTextBtn;
+        next.focus();
+        setActiveTab(next === tabTextBtn ? 'text' : 'image');
+    });
+});
+
 encodeBtn.addEventListener('click', () => {
     try {
         const bytes = encodeString(plainTextArea.value, charsetSelect.value);
